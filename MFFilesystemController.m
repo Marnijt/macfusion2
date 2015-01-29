@@ -336,8 +336,9 @@ static void diskUnMounted(DADiskRef disk, void *mySelf) {
 
 - (MFServerFS *)filesystemForToken:(NSString *)token {
 	NSAssert(token, @"Token nil in filesystemForToken");
-	if (![[_tokens allKeys] containsObject: token]) {
-		MFLogS(self, @"Invalid token in filesystemsForToken: %@", token);
+	NSAssert([[_tokens allKeys] count], @"No tokens available, internal inconsistency, please restart your machine and try again");
+	if (![[_tokens allKeys] containsObject:token]) {
+		MFLogS(self, @"Invalid token in filesystemsForToken: %@, available tokens are: %@, available filesystems are: %@", token, [[_tokens allKeys] count], [_tokens allKeys], [_filesystemsDictionary allKeys]);
 	}
 	
 	return [_tokens objectForKey: token];
