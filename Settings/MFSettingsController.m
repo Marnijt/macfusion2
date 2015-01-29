@@ -46,6 +46,7 @@
 		[NSApp setDelegate: self];
 		client = [MFClient sharedClient];
 		[client setDelegate: self];
+		_filesystemsToDeleteBuffer=[[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -287,18 +288,18 @@
 
 
 - (void)deleteFilesystems:(NSArray *)filesystems {
-	NSMutableArray *filesystemsToDelete = [filesystems mutableCopy];
+	[_filesystemsToDeleteBuffer addObjectsFromArray:filesystems];
 	for(MFClientFS *fs in filesystems) {
 		if(!([fs isUnmounted] || [fs isFailedToMount])) {
-			[filesystemsToDelete removeObject: fs];
+			[_filesystemsToDeleteBuffer removeObject: fs];
 			MFLogS(self, @"Can't delete filesystem %@", fs);
 		}
 	}
 
-	if ([filesystemsToDelete count] > 0) {
-		NSString *fsWord = [filesystemsToDelete count] == 1 ? @"filesystem" : @"filesystems";
+	if ([_filesystemsToDeleteBuffer count] > 0) {
+		NSString *fsWord = [_filesystemsToDeleteBuffer count] == 1 ? @"filesystem" : @"filesystems";
 		NSString *messageText = [NSString stringWithFormat: @"Are you sure you want to delete the %@ %@?", fsWord,
-								 [[filesystemsToDelete valueForKey: kMFFSNameParameter] componentsJoinedByString: @", "]];
+								 [[_filesystemsToDeleteBuffer valueForKey: kMFFSNameParameter] componentsJoinedByString: @", "]];
 		NSAlert *deleteConfirmation = [NSAlert new];
 		[deleteConfirmation setMessageText: messageText];
 		[deleteConfirmation addButtonWithTitle:@"OK"];
@@ -309,7 +310,7 @@
 		[deleteConfirmation beginSheetModalForWindow: [filesystemTableView window]
 									   modalDelegate:self
 									  didEndSelector:@selector(deleteConfirmationAlertDidEnd:returnCode:contextInfo:)
-										 contextInfo:(__bridge void *)(filesystemsToDelete)];
+										 contextInfo:nil];
 	}
 }
 
@@ -367,12 +368,12 @@
 
 
 - (void)deleteConfirmationAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)code contextInfo:(void *)context {
-	NSArray *filesystemsToDelete = (__bridge NSArray *)context;
 	if (code == NSAlertSecondButtonReturn) {
 		
 	} else if (code == NSAlertFirstButtonReturn) {
-		for(MFClientFS *fs in filesystemsToDelete) {
+		for(MFClientFS *fs in _filesystemsToDeleteBuffer) {
 			[client deleteFilesystem: fs];	
+			[_filesystemsToDeleteBuffer removeObject:fs];
 		}
 	}
 }
@@ -584,4 +585,5 @@
 }
 
 @synthesize client;
+@synthesize filesystemsToDeleteBuffer = _filesystemsToDeleteBuffer;
 @end
