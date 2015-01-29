@@ -62,9 +62,9 @@
 		D41E17E30D86041D00F46F50 /* new_ssh_askpass.m in Sources */ = {isa = PBXBuildFile; fileRef = D41E17CA0D86035500F46F50 /* new_ssh_askpass.m */; };
 		D41E1DA30D87557900F46F50 /* MFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = D41E1DA10D87557900F46F50 /* MFCore.h */; };
 		D41E1DA40D87557900F46F50 /* MFCore.m in Sources */ = {isa = PBXBuildFile; fileRef = D41E1DA20D87557900F46F50 /* MFCore.m */; };
-		D41E1DB20D87574E00F46F50 /* sshfs.mfplugin in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = D441521F0CE2933C001EEF36 /* sshfs.mfplugin */; };
+		D41E1DB20D87574E00F46F50 /* sshfs.mfplugin in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = D441521F0CE2933C001EEF36 /* sshfs.mfplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D41E1DBC0D8757A500F46F50 /* MacfusionMenuling.app in Copy App Resources */ = {isa = PBXBuildFile; fileRef = D48DB97F0D70D7A4008A62BB /* MacfusionMenuling.app */; };
-		D41E1DFE0D87580F00F46F50 /* mfctl in Copy App Resources */ = {isa = PBXBuildFile; fileRef = D4B14E730CE198AC003195A3 /* mfctl */; };
+		D41E1DFE0D87580F00F46F50 /* mfctl in Copy App Resources */ = {isa = PBXBuildFile; fileRef = D4B14E730CE198AC003195A3 /* mfctl */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D41E20E60D88711B00F46F50 /* MFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FC0C980CF128480029B133 /* MFCore.framework */; };
 		D41E21090D88723900F46F50 /* MFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FC0C980CF128480029B133 /* MFCore.framework */; };
 		D41E23990D88E7B100F46F50 /* macfusionAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41E23980D88E7B100F46F50 /* macfusionAdvancedView.xib */; };
@@ -122,7 +122,7 @@
 		D4C9109F0E03204E0071C4AF /* MFMountToggleButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9109E0E03204E0071C4AF /* MFMountToggleButtonCell.m */; };
 		D4C9139F0E04EC5F0071C4AF /* ActionGear.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C9139E0E04EC5F0071C4AF /* ActionGear.png */; };
 		D4C913EA0E05E8360071C4AF /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C913E90E05E8360071C4AF /* Sparkle.framework */; };
-		D4C9158C0E05E8960071C4AF /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D4C913E90E05E8360071C4AF /* Sparkle.framework */; };
+		D4C9158C0E05E8960071C4AF /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D4C913E90E05E8360071C4AF /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D4C917050E0626BF0071C4AF /* Plus.tiff in Resources */ = {isa = PBXBuildFile; fileRef = D4C917040E0626BF0071C4AF /* Plus.tiff */; };
 		D4CEE0F30D3045590064042E /* MFClientFS.h in Headers */ = {isa = PBXBuildFile; fileRef = D4CEE0F10D3045580064042E /* MFClientFS.h */; };
 		D4CEE0F40D3045590064042E /* MFClientFS.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CEE0F20D3045590064042E /* MFClientFS.m */; };
@@ -132,7 +132,7 @@
 		D4D6A0D80D025B4A00BC2E2D /* MFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D6A0D70D025B4A00BC2E2D /* MFConstants.h */; };
 		D4DB420B0D3E867200C99914 /* MFCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FC0C980CF128480029B133 /* MFCore.framework */; };
 		D4DB42EA0D3EAE4C00C99914 /* settingsMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB42E90D3EAE4C00C99914 /* settingsMain.m */; };
-		D4DB43210D3EAEE600C99914 /* MFCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D4FC0C980CF128480029B133 /* MFCore.framework */; };
+		D4DB43210D3EAEE600C99914 /* MFCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D4FC0C980CF128480029B133 /* MFCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D4DB43750D3EB6A100C99914 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DB43740D3EB6A100C99914 /* main.xib */; };
 		D4DB438B0D3EB9A400C99914 /* macfusionIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4386C0B0D0B47240078C19F /* macfusionIcon.icns */; };
 		D4DB45D40D3FEBE300C99914 /* MFFilesystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB45D30D3FEBE300C99914 /* MFFilesystemCell.m */; };
@@ -156,7 +156,7 @@
 		D4E6D8280D9373130022763F /* ftpfs_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4E6D8270D9373130022763F /* ftpfs_icon.icns */; };
 		D4E6D82F0D9373E40022763F /* ftpfs.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E6D82E0D9373E40022763F /* ftpfs.png */; };
 		D4E6D8340D93744D0022763F /* FTPFSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E6D8330D93744D0022763F /* FTPFSDelegate.m */; };
-		D4E6D8370D93746E0022763F /* ftpfs.mfplugin in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = D4E6D8090D9372640022763F /* ftpfs.mfplugin */; };
+		D4E6D8370D93746E0022763F /* ftpfs.mfplugin in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = D4E6D8090D9372640022763F /* ftpfs.mfplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D4E6D8430D9375930022763F /* curlftpfs_static_mg in Resources */ = {isa = PBXBuildFile; fileRef = D4E6D8420D9375930022763F /* curlftpfs_static_mg */; };
 		D4E6D8480D937DB00022763F /* ftpfsConfiguration.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E6D8470D937DB00022763F /* ftpfsConfiguration.xib */; };
 		D4E6DB050D93928F0022763F /* ftpfs_askpass in Resources */ = {isa = PBXBuildFile; fileRef = D4E6DB010D9392840022763F /* ftpfs_askpass */; };
@@ -1229,7 +1229,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "MacFusion2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1583,15 +1583,26 @@
 		1DEB927A08733DD40010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PREBINDING = NO;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1690,16 +1701,27 @@
 		D45B70EA0E1B3DFF0036043E /* Release-Signed */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = "Release-Signed";
 		};
@@ -1952,16 +1974,27 @@
 		D45B70F60E1B3E050036043E /* Debug-Signed */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = "Debug-Signed";
 		};
@@ -2526,18 +2559,29 @@
 		D4FC0DC60CF23DE30029B133 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
