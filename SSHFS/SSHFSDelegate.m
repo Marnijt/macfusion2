@@ -29,6 +29,12 @@
 #define kSSHFSFollowSymlinksParameter @"followSymlinks"
 #define kSSHFSAutoCacheParameter @"autoCache"
 #define kSSHFSDeferPermissionsParameter @"deferPermissions"
+#define kSSHFSAutoReconnectParameter @"autoReconnect"
+#define kSSHFSDisableConnectionSharingParameter @"disableConnectionSharing"
+#define kSSHFSMapUserParameter @"mapUser"
+#define kSSHFSMapUserUIDParameter @"mapUserUID"
+#define kSSHFSMapUserGIDParameter @"mapUserGID"
+#define kSSHFSUMaskParameter @"umask"
 #define kSSHFSFuseDebugParameter @"fuseDebug"
 #define kSSHFSSshfsDebugParameter @"sshfsDebug"
 #define kSSHFSSshDebugParameter @"sshDebug"
@@ -76,6 +82,22 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 	if ([[parameters objectForKey:kSSHFSAutoCacheParameter] boolValue] == YES) {
         [arguments addObject:@"-oauto_cache"];
     }
+	if ([[parameters objectForKey:kSSHFSAutoReconnectParameter] boolValue] == YES) {
+		[arguments addObject:@"-oreconnect"];
+	}
+	if ([[parameters objectForKey:kSSHFSDisableConnectionSharingParameter] boolValue] == YES) {
+		[arguments addObject:@"-oControlPath=none"];
+	}
+	if ([[parameters objectForKey:kSSHFSMapUserParameter] boolValue] == YES && [[parameters objectForKey:kSSHFSMapUserUIDParameter] boolValue] == YES) {
+		[arguments addObject:@"-oidmap=user"];
+		[arguments addObject:[NSString stringWithFormat:@"-ouid=%ld", [[parameters objectForKey:kSSHFSMapUserUIDParameter] integerValue]]];
+		if ([[parameters objectForKey:kSSHFSMapUserGIDParameter] boolValue] == YES) {
+			[arguments addObject:[NSString stringWithFormat:@"-ogid=%ld", [[parameters objectForKey:kSSHFSMapUserGIDParameter] integerValue]]];
+		}
+	}
+	if ([[parameters objectForKey:kSSHFSUMaskParameter] integerValue] >= 0) {
+		[arguments addObject:[NSString stringWithFormat:@"-oumask=%03lo", [[parameters objectForKey:kSSHFSUMaskParameter] integerValue]]];
+	}
 	if ([[parameters objectForKey:kSSHFSSshfsDebugParameter] boolValue] == YES) {
         [arguments addObject:@"-osshfs_debug"];
     }
@@ -131,7 +153,26 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 
 # pragma mark Parameters
 - (NSArray *)parameterList {
-	return [NSArray arrayWithObjects:kNetFSUserParameter,kNetFSHostParameter, kNetFSDirectoryParameter, kNetFSUserParameter,kNetFSPortParameter, kNetFSProtocolParameter, kSSHFSFollowSymlinksParameter,kSSHFSCompressionParameter, kSSHFSDeferPermissionsParameter, kSSHFSAutoCacheParameter, kSSHFSFuseDebugParameter, kSSHFSSshfsDebugParameter, kSSHFSSshDebugParameter, nil ];
+	return [NSArray arrayWithObjects:	kNetFSUserParameter,
+										kNetFSHostParameter,
+										kNetFSDirectoryParameter,
+										kNetFSUserParameter,
+										kNetFSPortParameter,
+										kNetFSProtocolParameter,
+										kSSHFSFollowSymlinksParameter,
+										kSSHFSCompressionParameter,
+										kSSHFSDeferPermissionsParameter,
+										kSSHFSAutoCacheParameter,
+										kSSHFSAutoReconnectParameter,
+										kSSHFSDisableConnectionSharingParameter,
+										kSSHFSMapUserParameter,
+										kSSHFSMapUserUIDParameter,
+										kSSHFSMapUserGIDParameter,
+										kSSHFSUMaskParameter,
+										kSSHFSFuseDebugParameter,
+										kSSHFSSshfsDebugParameter,
+										kSSHFSSshDebugParameter,
+										nil ];
 }
 
 - (NSArray *)secretsList {
@@ -148,6 +189,12 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 						[NSNumber numberWithBool:YES], kSSHFSCompressionParameter,
                         [NSNumber numberWithBool:YES], kSSHFSDeferPermissionsParameter,
                         [NSNumber numberWithBool:YES], kSSHFSAutoCacheParameter,
+						[NSNumber numberWithBool:NO], kSSHFSAutoReconnectParameter,
+						[NSNumber numberWithBool:YES], kSSHFSDisableConnectionSharingParameter,
+						[NSNumber numberWithBool:NO], kSSHFSMapUserParameter,
+						[NSNumber numberWithUnsignedInt:getuid()], kSSHFSMapUserUIDParameter,
+						[NSNumber numberWithUnsignedInt:getgid()], kSSHFSMapUserGIDParameter,
+						[NSNumber numberWithInt:-1], kSSHFSUMaskParameter,
                         [NSNumber numberWithBool:NO], kSSHFSFuseDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshfsDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshDebugParameter,
