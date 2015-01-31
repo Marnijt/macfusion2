@@ -51,44 +51,6 @@
 	return self;
 }
 
-# pragma mark Agent connection
-- (void)agentStartFailedSheetDidEnd:(NSAlert*)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)context {
-	[NSApp terminate: self];
-}
-
-- (void)agentStartSheetDidEnd:(NSAlert*)sheet returnCode:(NSInteger)returnCode context:(void *)context {
-	NSAlert *serverStartAlert = sheet;
-	[[serverStartAlert window] orderOut: self];
-	[NSApp endSheet: [serverStartAlert window]]; 
-	
-	if ([[serverStartAlert suppressionButton] state]) {
-		mfcSetStateForAgentLoginItem(YES);
-	}
-		
-	if (returnCode == NSAlertSecondButtonReturn) {
-		[NSApp terminate: self];
-	} else if (returnCode == NSAlertFirstButtonReturn) {
-		mfcLaunchAgent();
-		[[NSRunLoop currentRunLoop] runUntilDate:[[NSDate date] dateByAddingTimeInterval: 3]];
-		
-		if ([client establishCommunication]) {
-			[client fillInitialStatus];
-			[self connectionOK];
-		} else {
-			NSAlert *faliureAlert = [NSAlert alertWithMessageText:@"Could not start or connect to the macfusion agent"
-													defaultButton:@"OK"
-												  alternateButton:@""
-													  otherButton:@""
-										informativeTextWithFormat:@"Macfusion will Quit."];
-			[faliureAlert setAlertStyle: NSCriticalAlertStyle];
-			[faliureAlert beginSheetModalForWindow: [filesystemTableView window]
-									 modalDelegate:self
-									didEndSelector:@selector(agentStartFailedSheetDidEnd:returnCode:contextInfo:)
-									   contextInfo:nil];
-		}
-	}
-}
-
 - (BOOL)setup {
 	mfcSetupTrashMonitoring();
 	if ([client establishCommunication]) {
@@ -118,7 +80,8 @@
 		} else {
 			// Try to start the agent process
 			MFLogS(self, @"Agent not runing. Request to Start.");
-			NSAlert *serverStartAlert = [NSAlert new];
+
+			NSAlert *serverStartAlert = [[NSAlert alloc] init];
 			[serverStartAlert setMessageText: @"The macfusion agent process is not started"];
 			[serverStartAlert setInformativeText: @"Would you like to start the agent?\nOtherwise, Macfusion will Quit."];
 			[serverStartAlert setShowsSuppressionButton: YES];
@@ -126,10 +89,37 @@
 			[serverStartAlert addButtonWithTitle:@"Quit"];
 			[[serverStartAlert suppressionButton] setTitle: @"Start agent automatically on login"];
 			[[serverStartAlert suppressionButton] setState: mfcGetStateForAgentLoginItem()];
-			[serverStartAlert beginSheetModalForWindow:[filesystemTableView window]
-																 modalDelegate:self
-																didEndSelector:@selector(agentStartSheetDidEnd:returnCode:context:)
-																   contextInfo:nil];
+			[serverStartAlert beginSheetModalForWindow:[filesystemTableView window] completionHandler:^(NSInteger returnCode) {
+				
+//				[[serverStartAlert window] orderOut: self];
+//				[NSApp endSheet: [serverStartAlert window]];
+				
+				if ([[serverStartAlert suppressionButton] state]) {
+					mfcSetStateForAgentLoginItem(YES);
+				}
+				
+				if (returnCode == NSAlertSecondButtonReturn) {
+					[NSApp terminate: self];
+					
+				} else if (returnCode == NSAlertFirstButtonReturn) {
+					mfcLaunchAgent();
+					[[NSRunLoop currentRunLoop] runUntilDate:[[NSDate date] dateByAddingTimeInterval: 3]];
+					
+					if ([client establishCommunication]) {
+						[client fillInitialStatus];
+						[self connectionOK];
+
+					} else {
+						NSAlert *failureAlert = [[NSAlert alloc] init];
+						[failureAlert setMessageText:@"Could not start or connect to the macfusion agent"];
+						[failureAlert setInformativeText:@"Macfusion will Quit."];
+						[failureAlert setAlertStyle:NSCriticalAlertStyle];
+						[failureAlert beginSheetModalForWindow: [filesystemTableView window] completionHandler:^(NSModalResponse returnCode) {
+							[NSApp terminate: self];
+						}];
+					}
+				}
+			}];
 		}
 		
 	}
@@ -142,10 +132,6 @@
 - (void)awakeFromNib {
 	NSCell *testCell = [[MFFilesystemCell alloc] init];
 	[[filesystemTableView tableColumnWithIdentifier:@"test"] setDataCell: testCell];
-	NSMenu *tableViewMenu = [[NSMenu alloc] initWithTitle:@"Tableview Menu"];
-	[tableViewMenu addItemWithTitle:@"Mount" action:@selector(mount) keyEquivalent:@""];
-	[tableViewMenu addItemWithTitle:@"Unmount" action:@selector(unmount) keyEquivalent:@""];
-	[tableViewMenu addItemWithTitle:@"Edit" action:@selector(editSelectedFilesystem:) keyEquivalent:@""];
 	
 	[[MFPreferences sharedPreferences] addObserver:self forKeyPath:kMFPrefsAutosize options:0 context:(__bridge void *)(self)];
 	[filesystemTableView setIntercellSpacing: NSMakeSize(10, 0)];
@@ -307,10 +293,16 @@
 		NSButton *cancelButton = [deleteConfirmation addButtonWithTitle:@"Cancel"];
 		[cancelButton setKeyEquivalent:@"\e"];
 		[deleteConfirmation setAlertStyle: NSCriticalAlertStyle];
-		[deleteConfirmation beginSheetModalForWindow: [filesystemTableView window]
-									   modalDelegate:self
-									  didEndSelector:@selector(deleteConfirmationAlertDidEnd:returnCode:contextInfo:)
-										 contextInfo:nil];
+		[deleteConfirmation beginSheetModalForWindow: [filesystemTableView window] completionHandler:^(NSModalResponse returnCode) {
+			if (returnCode == NSAlertSecondButtonReturn) {
+				
+			} else if (returnCode == NSAlertFirstButtonReturn) {
+				for(MFClientFS *fs in _filesystemsToDeleteBuffer) {
+					[client deleteFilesystem: fs];
+					[_filesystemsToDeleteBuffer removeObject:fs];
+				}
+			}
+		}];
 	}
 }
 
@@ -365,19 +357,6 @@
 - (IBAction)deleteSelectedFS:(id)sender {
 	[self deleteFilesystems:[self selectedFilesystems]];
 }
-
-
-- (void)deleteConfirmationAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)code contextInfo:(void *)context {
-	if (code == NSAlertSecondButtonReturn) {
-		
-	} else if (code == NSAlertFirstButtonReturn) {
-		for(MFClientFS *fs in _filesystemsToDeleteBuffer) {
-			[client deleteFilesystem: fs];	
-			[_filesystemsToDeleteBuffer removeObject:fs];
-		}
-	}
-}
-
 
 # pragma mark Notification
 - (void)filesystemDidChangeStatus:(MFClientFS *)fs {
@@ -512,39 +491,6 @@
 	 [NSURL URLWithString: @"http://www.macfusionapp.org/support.html"]];
 }
 
-# pragma mark Error Recovery
-- (void)finalFaliureAlertDidEnd:(NSAlert *)alert
-					 returnCode:(NSInteger)returnValue
-					contextInfo:(void *)context {
-	[NSApp terminate: self];
-}
-
-- (void)connectionDidDieAlertDidEnd:(NSAlert *)alert
-						 returnCode:(NSInteger)returnValue 
-						contextInfo:(void *)context {
-	[[alert window] orderOut:self];
-	if (returnValue == NSAlertFirstButtonReturn) {
-		[NSApp terminate: self];
-	} else if (returnValue == NSAlertSecondButtonReturn) {
-		mfcLaunchAgent();
-		[[NSRunLoop currentRunLoop] runUntilDate:[[NSDate date] dateByAddingTimeInterval: 1.5]];
-		if ([client establishCommunication]) {
-			[client fillInitialStatus];
-		} else {
-			NSAlert *finalFaliureAlert = [NSAlert alertWithMessageText:@"Failed to restart Macfusion Agent"
-														 defaultButton:@"Quit"
-													   alternateButton:@"" 
-														   otherButton:@""
-											 informativeTextWithFormat:@"The Macfusion Agent failed to restart.\nMacfusion must quit."];
-			[finalFaliureAlert setAlertStyle: NSCriticalAlertStyle];
-			[finalFaliureAlert beginSheetModalForWindow:[filesystemTableView window]
-										  modalDelegate:self
-										 didEndSelector:@selector(finalFaliureAlertDidEnd:returnCode:contextInfo:)
-											contextInfo:nil];
-		}
-	}
-}
-
 - (void)handleConnectionDied {
 		
 	if (mfcClientIsUIElement()) {
@@ -558,11 +504,29 @@
 	[connectDidDieAlert setMessageText:@"The Macfusion Agent has quit unexpectedly"];
 	[connectDidDieAlert setInformativeText:@"Would you like to try and restart the agent so macfusion can \
 	 continue working?\nOtherwise, Macfusion must Quit."];
-	[connectDidDieAlert beginSheetModalForWindow:[filesystemTableView window]
-								   modalDelegate:self
-								  didEndSelector:@selector(connectionDidDieAlertDidEnd:returnCode:contextInfo:)
-									 contextInfo:nil]; 
-	
+	[connectDidDieAlert beginSheetModalForWindow:[filesystemTableView window] completionHandler:^(NSModalResponse returnCode) {
+		//[[alert window] orderOut:self];
+		if (returnCode == NSAlertFirstButtonReturn) {
+			[NSApp terminate: self];
+
+		} else if (returnCode == NSAlertSecondButtonReturn) {
+			mfcLaunchAgent();
+			[[NSRunLoop currentRunLoop] runUntilDate:[[NSDate date] dateByAddingTimeInterval: 1.5]];
+			if ([client establishCommunication]) {
+				[client fillInitialStatus];
+			} else {
+				NSAlert *finalFaliureAlert = [[NSAlert alloc] init];
+				[finalFaliureAlert addButtonWithTitle:@"Quit"];
+				[finalFaliureAlert setMessageText:@"Failed to restart Macfusion Agent"];
+				[finalFaliureAlert setInformativeText:@"The Macfusion Agent failed to restart.\nMacfusion must quit."];
+				[finalFaliureAlert setAlertStyle: NSCriticalAlertStyle];
+				[finalFaliureAlert beginSheetModalForWindow:[filesystemTableView window] completionHandler:^(NSModalResponse returnCode) {
+					[NSApp terminate: self];
+				}];
+			}
+		}
+	}];
+
 }
 
 #pragma mark Sparkle
