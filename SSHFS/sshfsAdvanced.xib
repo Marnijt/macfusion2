@@ -183,7 +183,9 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserUID" id="Ey2-xj-Xve"/>
+                        <binding destination="-2" name="enabled" keyPath="representedObject.parameters.mapUser" id="X1i-by-kNC"/>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserUID" id="JI1-wa-auT"/>
+                        <outlet property="delegate" destination="-2" id="B9f-fa-RjF"/>
                     </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" id="TRC-ma-SH9">
@@ -213,6 +215,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <binding destination="-2" name="enabled" keyPath="representedObject.parameters.mapUser" id="kM2-qb-OeB"/>
                         <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserGID" id="IDE-0a-zWg"/>
                     </connections>
                 </textField>
