@@ -34,6 +34,7 @@
 #define kSSHFSMapUserParameter @"mapUser"
 #define kSSHFSMapUserUIDParameter @"mapUserUID"
 #define kSSHFSMapUserGIDParameter @"mapUserGID"
+#define kSSHFSUMaskParameter @"umask"
 #define kSSHFSFuseDebugParameter @"fuseDebug"
 #define kSSHFSSshfsDebugParameter @"sshfsDebug"
 #define kSSHFSSshDebugParameter @"sshDebug"
@@ -93,6 +94,9 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 		if ([[parameters objectForKey:kSSHFSMapUserGIDParameter] boolValue] == YES) {
 			[arguments addObject:[NSString stringWithFormat:@"-ogid=%ld", [[parameters objectForKey:kSSHFSMapUserGIDParameter] integerValue]]];
 		}
+	}
+	if ([[parameters objectForKey:kSSHFSUMaskParameter] integerValue] >= 0) {
+		[arguments addObject:[NSString stringWithFormat:@"-oumask=%03lo", [[parameters objectForKey:kSSHFSUMaskParameter] integerValue]]];
 	}
 	if ([[parameters objectForKey:kSSHFSSshfsDebugParameter] boolValue] == YES) {
         [arguments addObject:@"-osshfs_debug"];
@@ -164,6 +168,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 										kSSHFSMapUserParameter,
 										kSSHFSMapUserUIDParameter,
 										kSSHFSMapUserGIDParameter,
+										kSSHFSUMaskParameter,
 										kSSHFSFuseDebugParameter,
 										kSSHFSSshfsDebugParameter,
 										kSSHFSSshDebugParameter,
@@ -189,6 +194,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 						[NSNumber numberWithBool:NO], kSSHFSMapUserParameter,
 						[NSNumber numberWithUnsignedInt:getuid()], kSSHFSMapUserUIDParameter,
 						[NSNumber numberWithUnsignedInt:getgid()], kSSHFSMapUserGIDParameter,
+						[NSNumber numberWithInt:-1], kSSHFSUMaskParameter,
                         [NSNumber numberWithBool:NO], kSSHFSFuseDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshfsDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshDebugParameter,

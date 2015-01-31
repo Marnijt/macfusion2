@@ -240,6 +240,38 @@
                         <binding destination="-2" name="value" keyPath="representedObject.parameters.autoConnect" id="row-H7-M6X"/>
                     </connections>
                 </button>
+                <textField verticalHuggingPriority="750" id="mTu-5F-RXD" userLabel="Umask:">
+                    <rect key="frame" x="334" y="230" width="58" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Umask:" placeholderString="" id="nTY-oa-Eqs">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="leQ-Y5-nSx" userLabel="Umask">
+                    <rect key="frame" x="388" y="228" width="79" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="RCL-XN-HfH" id="t7O-xr-kG4">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="2k7-2y-1id">
+                            <items>
+                                <menuItem title="Default" tag="-1" state="on" id="RCL-XN-HfH"/>
+                                <menuItem title="022" tag="18" id="dHq-iv-e8i"/>
+                                <menuItem title="002" tag="2" id="VFh-FY-ZhX"/>
+                                <menuItem title="000" tag="0" id="LCR-XN-vfH" />
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedTag" keyPath="representedObject.parameters.umask" id="EKf-GG-TAe">
+                            <dictionary key="options">
+                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </popUpButton>
             </subviews>
             <point key="canvasLocation" x="733" y="508.5"/>
         </customView>
