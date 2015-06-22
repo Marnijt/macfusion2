@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1050" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSViewController">
@@ -13,11 +13,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="1">
-            <rect key="frame" x="0.0" y="0.0" width="554" height="407"/>
+            <rect key="frame" x="0.0" y="0.0" width="554" height="426"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField verticalHuggingPriority="750" id="4">
-                    <rect key="frame" x="70" y="367" width="38" height="17"/>
+                    <rect key="frame" x="70" y="386" width="38" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port:" id="5">
                         <font key="font" metaFont="system"/>
@@ -26,10 +26,10 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="2" userLabel="Port">
-                    <rect key="frame" x="120" y="365" width="74" height="22"/>
+                    <rect key="frame" x="120" y="384" width="74" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="3">
-                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="0" id="YnS-s7-dGV">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="YnS-s7-dGV">
                             <real key="minimum" value="1"/>
                             <real key="maximum" value="65535"/>
                         </numberFormatter>
@@ -43,7 +43,7 @@
                     </connections>
                 </textField>
                 <button id="6">
-                    <rect key="frame" x="118" y="341" width="204" height="18"/>
+                    <rect key="frame" x="118" y="360" width="204" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Enable Compression" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="7">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -54,7 +54,7 @@
                     </connections>
                 </button>
                 <button id="8">
-                    <rect key="frame" x="118" y="321" width="204" height="18"/>
+                    <rect key="frame" x="118" y="340" width="204" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Follow Symbolic Links" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="9">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -65,7 +65,7 @@
                     </connections>
                 </button>
                 <button id="vCD-wo-Ct0">
-                    <rect key="frame" x="118" y="301" width="204" height="18"/>
+                    <rect key="frame" x="118" y="320" width="204" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Auto Cache" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="17W-mp-nUU">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -84,6 +84,177 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button id="7Sq-lE-AeN">
+                    <rect key="frame" x="118" y="300" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Defer Permissions" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="vZ1-hr-qLT">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.deferPermissions" id="eY4-PW-QYn"/>
+                    </connections>
+                </button>
+                <button id="ley-b9-zch">
+                    <rect key="frame" x="118" y="260" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="SSHFS Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="n0Y-3z-a7p">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.sshfsDebug" id="Ss0-c9-Hyz"/>
+                    </connections>
+                </button>
+                <button id="qgb-0p-Qm1">
+                    <rect key="frame" x="118" y="280" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="FUSE Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="EAy-rr-FUb">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.fuseDebug" id="57i-ls-r1y"/>
+                    </connections>
+                </button>
+                <button id="baf-L8-h8r">
+                    <rect key="frame" x="118" y="240" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="SSH Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="GGA-iO-A0j">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.sshDebug" id="log-57-Ezp"/>
+                    </connections>
+                </button>
+                <button id="0Kk-Y5-3hj">
+                    <rect key="frame" x="118" y="220" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="sudo" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Axr-Ar-T3g">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.sudo" id="cmK-aP-POk"/>
+                    </connections>
+                </button>
+                <button id="gax-xy-zS8" userLabel="Disable Connection Sharing">
+                    <rect key="frame" x="332" y="340" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Disable Connection Sharing" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FWf-Ly-shl">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.disableConnectionSharing" id="c7I-Ya-r7L"/>
+                    </connections>
+                </button>
+                <button id="dzC-hU-ftw" userLabel="Map User">
+                    <rect key="frame" x="332" y="320" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Map User" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XxZ-A7-LNh">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUser" id="k6h-NB-XOT"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="1U3-QI-ocI" userLabel="Mapped User UID">
+                    <rect key="frame" x="390" y="298" width="74" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="01b-M4-kyo">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="OGf-Ye-CKS">
+                            <real key="minimum" value="0.0"/>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="enabled" keyPath="representedObject.parameters.mapUser" id="X1i-by-kNC"/>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserUID" id="JI1-wa-auT"/>
+                        <outlet property="delegate" destination="-2" id="B9f-fa-RjF"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="TRC-ma-SH9">
+                    <rect key="frame" x="350" y="298" width="44" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="UID:" id="Sf8-UO-H5m">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="ATi-oI-1kk">
+                    <rect key="frame" x="350" y="274" width="44" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="GID:" id="h5j-pT-1uQ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="ZZP-NS-ZgJ" userLabel="Mapped User GID">
+                    <rect key="frame" x="390" y="274" width="74" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="53z-D8-Jm4">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="2Pp-Ko-peB">
+                            <real key="minimum" value="0.0"/>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="enabled" keyPath="representedObject.parameters.mapUser" id="kM2-qb-OeB"/>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserGID" id="IDE-0a-zWg"/>
+                    </connections>
+                </textField>
+                <button id="No9-Hy-Swz" userLabel="Auto Reconnect">
+                    <rect key="frame" x="332" y="360" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Auto Reconnect" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NOx-xS-avc">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.autoConnect" id="row-H7-M6X"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="mTu-5F-RXD" userLabel="Umask:">
+                    <rect key="frame" x="334" y="249" width="58" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Umask:" placeholderString="" id="nTY-oa-Eqs">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="leQ-Y5-nSx" userLabel="Umask">
+                    <rect key="frame" x="388" y="247" width="79" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="RCL-XN-HfH" id="t7O-xr-kG4">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="2k7-2y-1id">
+                            <items>
+                                <menuItem title="Default" state="on" tag="-1" id="RCL-XN-HfH"/>
+                                <menuItem title="022" tag="18" id="dHq-iv-e8i"/>
+                                <menuItem title="002" tag="2" id="VFh-FY-ZhX"/>
+                                <menuItem title="000" id="LCR-XN-vfH"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedTag" keyPath="representedObject.parameters.umask" id="EKf-GG-TAe">
+                            <dictionary key="options">
+                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </popUpButton>
                 <textField verticalHuggingPriority="750" id="44" userLabel="Extra Options">
                     <rect key="frame" x="120" y="20" width="414" height="195"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -112,168 +283,8 @@
                         </binding>
                     </connections>
                 </textField>
-                <button id="7Sq-lE-AeN">
-                    <rect key="frame" x="118" y="281" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Defer Permissions" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="vZ1-hr-qLT">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.deferPermissions" id="eY4-PW-QYn"/>
-                    </connections>
-                </button>
-                <button id="ley-b9-zch">
-                    <rect key="frame" x="118" y="241" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="SSHFS Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="n0Y-3z-a7p">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.sshfsDebug" id="Ss0-c9-Hyz"/>
-                    </connections>
-                </button>
-                <button id="qgb-0p-Qm1">
-                    <rect key="frame" x="118" y="261" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="FUSE Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="EAy-rr-FUb">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.fuseDebug" id="57i-ls-r1y"/>
-                    </connections>
-                </button>
-                <button id="baf-L8-h8r">
-                    <rect key="frame" x="118" y="221" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="SSH Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="GGA-iO-A0j">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.sshDebug" id="log-57-Ezp"/>
-                    </connections>
-                </button>
-                <button id="gax-xy-zS8" userLabel="Disable Connection Sharing">
-                    <rect key="frame" x="332" y="321" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Disable Connection Sharing" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FWf-Ly-shl">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.disableConnectionSharing" id="c7I-Ya-r7L"/>
-                    </connections>
-                </button>
-                <button id="dzC-hU-ftw" userLabel="Map User">
-                    <rect key="frame" x="332" y="301" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Map User" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XxZ-A7-LNh">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUser" id="k6h-NB-XOT"/>
-                    </connections>
-                </button>
-                <textField verticalHuggingPriority="750" id="1U3-QI-ocI" userLabel="Mapped User UID">
-                    <rect key="frame" x="390" y="279" width="74" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="01b-M4-kyo">
-                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="0" id="OGf-Ye-CKS">
-                            <real key="minimum" value="0"/>
-                        </numberFormatter>
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="enabled" keyPath="representedObject.parameters.mapUser" id="X1i-by-kNC"/>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserUID" id="JI1-wa-auT"/>
-                        <outlet property="delegate" destination="-2" id="B9f-fa-RjF"/>
-                    </connections>
-                </textField>
-                <textField verticalHuggingPriority="750" id="TRC-ma-SH9">
-                    <rect key="frame" x="350" y="279" width="44" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="UID:" id="Sf8-UO-H5m">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" id="ATi-oI-1kk">
-                    <rect key="frame" x="350" y="255" width="44" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="GID:" id="h5j-pT-1uQ">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" id="ZZP-NS-ZgJ" userLabel="Mapped User GID">
-                    <rect key="frame" x="390" y="255" width="74" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="53z-D8-Jm4">
-                        <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="0" id="2Pp-Ko-peB">
-                            <real key="minimum" value="0"/>
-                        </numberFormatter>
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="enabled" keyPath="representedObject.parameters.mapUser" id="kM2-qb-OeB"/>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.mapUserGID" id="IDE-0a-zWg"/>
-                    </connections>
-                </textField>
-                <button id="No9-Hy-Swz" userLabel="Auto Reconnect">
-                    <rect key="frame" x="332" y="341" width="204" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Auto Reconnect" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NOx-xS-avc">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="representedObject.parameters.autoConnect" id="row-H7-M6X"/>
-                    </connections>
-                </button>
-                <textField verticalHuggingPriority="750" id="mTu-5F-RXD" userLabel="Umask:">
-                    <rect key="frame" x="334" y="230" width="58" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Umask:" placeholderString="" id="nTY-oa-Eqs">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <popUpButton verticalHuggingPriority="750" id="leQ-Y5-nSx" userLabel="Umask">
-                    <rect key="frame" x="388" y="228" width="79" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="RCL-XN-HfH" id="t7O-xr-kG4">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" id="2k7-2y-1id">
-                            <items>
-                                <menuItem title="Default" tag="-1" state="on" id="RCL-XN-HfH"/>
-                                <menuItem title="022" tag="18" id="dHq-iv-e8i"/>
-                                <menuItem title="002" tag="2" id="VFh-FY-ZhX"/>
-                                <menuItem title="000" tag="0" id="LCR-XN-vfH" />
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                    <connections>
-                        <binding destination="-2" name="selectedTag" keyPath="representedObject.parameters.umask" id="EKf-GG-TAe">
-                            <dictionary key="options">
-                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </popUpButton>
             </subviews>
-            <point key="canvasLocation" x="733" y="508.5"/>
+            <point key="canvasLocation" x="733" y="522"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="27"/>
     </objects>

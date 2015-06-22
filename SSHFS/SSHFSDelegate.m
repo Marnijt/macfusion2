@@ -38,6 +38,7 @@
 #define kSSHFSFuseDebugParameter @"fuseDebug"
 #define kSSHFSSshfsDebugParameter @"sshfsDebug"
 #define kSSHFSSshDebugParameter @"sshDebug"
+#define kSSHFSSudoParameter @"sudo"
 
 static NSString *primaryViewControllerKey = @"sshfsPrimaryView";
 static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
@@ -107,6 +108,10 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 	if ([[parameters objectForKey:kSSHFSSshDebugParameter] boolValue] == YES) {
         [arguments addObject:@"-ologlevel=debug1"];
     }
+	if ([[parameters objectForKey:kSSHFSSudoParameter] boolValue] == YES) {
+		[arguments addObject:@"-ossh_command=ssh -tt"];
+		[arguments addObject:@"-osftp_server=/usr/local/bin/sudo /usr/libexec/sftp-server"];
+	}
 	[arguments addObject:@"-f"];
 	[arguments addObject:[NSString stringWithFormat:@"-ovolname=%@", [parameters objectForKey:kMFFSVolumeNameParameter]]];
 	[arguments addObject:[NSString stringWithFormat:@"-ovolicon=%@", [parameters objectForKey:kMFFSVolumeIconPathParameter]]];
@@ -172,6 +177,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 										kSSHFSFuseDebugParameter,
 										kSSHFSSshfsDebugParameter,
 										kSSHFSSshDebugParameter,
+										kSSHFSSudoParameter,
 										nil ];
 }
 
@@ -198,6 +204,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
                         [NSNumber numberWithBool:NO], kSSHFSFuseDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshfsDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshDebugParameter,
+						[NSNumber numberWithBool:NO], kSSHFSSudoParameter,
 						nil];
 	
 	return defaultParameters;
