@@ -1,0 +1,16 @@
+
+brew install --verbose autoconf automake libtool cask
+brew cask install --verbose osxfuse
+
+git clone https://github.com/osxfuse/sshfs
+sed -i.orig -Ee 's/^AM_INIT_AUTOMAKE$/AM_INIT_AUTOMAKE([subdir-objects])/' configure.ac
+sed -i.orig -Ee '/ssh_add_arg\("-[ax]"\)/ { d; }; /"ControlPath"/ { p; s/ControlPath/ForwardAgent/p; s/ForwardAgent/ForwardX11/; }' sshfs.c | grep -3 ControlPath
+autoreconf -i
+./configure
+make
+
+cp sshfs to Macfusion
+run bundle-dylib.sh sshfs-static *.dylib
+
+brew cask unsinstall --verbose osxfuse
+brew unsinstall --verbose autoconf automake libtool cask
