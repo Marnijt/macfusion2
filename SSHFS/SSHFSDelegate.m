@@ -39,6 +39,7 @@
 #define kSSHFSSshfsDebugParameter @"sshfsDebug"
 #define kSSHFSSshDebugParameter @"sshDebug"
 #define kSSHFSSudoParameter @"sudo"
+#define kSSHFSForwardAgent @"forwardAgent"
 
 static NSString *primaryViewControllerKey = @"sshfsPrimaryView";
 static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
@@ -51,7 +52,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 }
 
 - (NSString *)executablePath {
-	return [[NSBundle bundleForClass:[self class]] pathForResource:@"sshfs-static" ofType:nil inDirectory:nil];
+	return [[NSBundle bundleForClass:[self class]] pathForResource:@"sshfs" ofType:nil inDirectory:nil];
 }
 
 - (NSArray *)secretsClientsList {
@@ -111,6 +112,11 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 	if ([[parameters objectForKey:kSSHFSSudoParameter] boolValue] == YES) {
 		[arguments addObject:@"-ossh_command=ssh -tt"];
 		[arguments addObject:@"-osftp_server=/usr/local/bin/sudo /usr/libexec/sftp-server"];
+	}
+	if ([[parameters objectForKey:kSSHFSForwardAgent] boolValue] == YES) {
+		[arguments addObject:@"-oForwardAgent=yes"];
+	} else {
+		[arguments addObject:@"-oForwardAgent=no"];
 	}
 	[arguments addObject:@"-f"];
 	[arguments addObject:[NSString stringWithFormat:@"-ovolname=%@", [parameters objectForKey:kMFFSVolumeNameParameter]]];
@@ -178,6 +184,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
 										kSSHFSSshfsDebugParameter,
 										kSSHFSSshDebugParameter,
 										kSSHFSSudoParameter,
+										kSSHFSForwardAgent,
 										nil ];
 }
 
@@ -205,6 +212,7 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
                         [NSNumber numberWithBool:NO], kSSHFSSshfsDebugParameter,
                         [NSNumber numberWithBool:NO], kSSHFSSshDebugParameter,
 						[NSNumber numberWithBool:NO], kSSHFSSudoParameter,
+						[NSNumber numberWithBool:NO], kSSHFSForwardAgent,
 						nil];
 	
 	return defaultParameters;

@@ -283,6 +283,17 @@
                         </binding>
                     </connections>
                 </textField>
+                <button id="7mD-xO-kkJ">
+                    <rect key="frame" x="332" y="221" width="204" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Forward Agent" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="74b-KS-M7b">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="representedObject.parameters.forwardAgent" id="APR-qA-M45"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="733" y="522"/>
         </customView>

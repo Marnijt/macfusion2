@@ -37,6 +37,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8D25FDF71B3AEC8E002B7911 /* libglib-2.0.0.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 8D25FDF21B3AEC8E002B7911 /* libglib-2.0.0.dylib */; };
+		8D25FDF81B3AEC8E002B7911 /* libgthread-2.0.0.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 8D25FDF31B3AEC8E002B7911 /* libgthread-2.0.0.dylib */; };
+		8D25FDF91B3AEC8E002B7911 /* libintl.8.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 8D25FDF41B3AEC8E002B7911 /* libintl.8.dylib */; };
+		8D25FDFD1B3AECAC002B7911 /* libosxfuse_i64.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 8D25FDFC1B3AECAC002B7911 /* libosxfuse_i64.2.dylib */; };
+		8D25FDFF1B3AEDFD002B7911 /* sshfs in Resources */ = {isa = PBXBuildFile; fileRef = 8D25FDFE1B3AEDFD002B7911 /* sshfs */; };
 		D40235AE0D7E0176000B9B64 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40235AD0D7E0176000B9B64 /* Carbon.framework */; };
 		D402372E0D7E029E000B9B64 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40235AD0D7E0176000B9B64 /* Carbon.framework */; };
 		D403632F0E0780BF0048BB63 /* MFEditingController.h in Headers */ = {isa = PBXBuildFile; fileRef = D403632D0E0780BF0048BB63 /* MFEditingController.h */; };
@@ -111,7 +116,6 @@
 		D49059750D35681F00E21C1E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49059740D35681F00E21C1E /* AppKit.framework */; };
 		D4905C330D393F8300E21C1E /* MFClientPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = D4905C310D393F8300E21C1E /* MFClientPlugin.h */; };
 		D4905C340D393F8300E21C1E /* MFClientPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D4905C320D393F8300E21C1E /* MFClientPlugin.m */; };
-		D4B14BCB0CE03D25003195A3 /* sshfs-static in Resources */ = {isa = PBXBuildFile; fileRef = D4B14BAC0CE03C84003195A3 /* sshfs-static */; };
 		D4B14D740CE195CB003195A3 /* mfctl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B14D730CE195CB003195A3 /* mfctl.m */; };
 		D4B14EE30CE2468B003195A3 /* MFLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B14EE10CE2468B003195A3 /* MFLogging.h */; };
 		D4B14EE40CE2468B003195A3 /* MFLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B14EE20CE2468B003195A3 /* MFLogging.m */; };
@@ -353,6 +357,11 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* macfusionAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = macfusionAgent.m; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D25FDF21B3AEC8E002B7911 /* libglib-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libglib-2.0.0.dylib"; sourceTree = "<group>"; };
+		8D25FDF31B3AEC8E002B7911 /* libgthread-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgthread-2.0.0.dylib"; sourceTree = "<group>"; };
+		8D25FDF41B3AEC8E002B7911 /* libintl.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libintl.8.dylib; sourceTree = "<group>"; };
+		8D25FDFC1B3AECAC002B7911 /* libosxfuse_i64.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libosxfuse_i64.2.dylib; sourceTree = "<group>"; };
+		8D25FDFE1B3AEDFD002B7911 /* sshfs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sshfs; sourceTree = "<group>"; };
 		D40235AD0D7E0176000B9B64 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		D403632D0E0780BF0048BB63 /* MFEditingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFEditingController.h; sourceTree = "<group>"; };
 		D403632E0E0780BF0048BB63 /* MFEditingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFEditingController.m; sourceTree = "<group>"; };
@@ -437,7 +446,6 @@
 		D4905C6C0D394A5D00E21C1E /* MFServerFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFServerFS.m; sourceTree = "<group>"; };
 		D4905C6E0D394A6700E21C1E /* MFServerPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFServerPlugin.h; sourceTree = "<group>"; };
 		D4905C6F0D394A6700E21C1E /* MFServerPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFServerPlugin.m; sourceTree = "<group>"; };
-		D4B14BAC0CE03C84003195A3 /* sshfs-static */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "sshfs-static"; sourceTree = "<group>"; };
 		D4B14C0F0CE03F4C003195A3 /* sshfs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sshfs-Info.plist"; sourceTree = "<group>"; };
 		D4B14C840CE0455A003195A3 /* MFPluginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPluginController.h; sourceTree = "<group>"; };
 		D4B14C850CE0455A003195A3 /* MFPluginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPluginController.m; sourceTree = "<group>"; };
@@ -836,11 +844,15 @@
 		D4D900E40D50F5A800A868F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D25FDFE1B3AEDFD002B7911 /* sshfs */,
+				8D25FDFC1B3AECAC002B7911 /* libosxfuse_i64.2.dylib */,
+				8D25FDF21B3AEC8E002B7911 /* libglib-2.0.0.dylib */,
+				8D25FDF31B3AEC8E002B7911 /* libgthread-2.0.0.dylib */,
+				8D25FDF41B3AEC8E002B7911 /* libintl.8.dylib */,
 				D4656C8B0D6FD6DC00DE2208 /* sshfs_icon.icns */,
 				D4656C8C0D6FD6DC00DE2208 /* sshfs.png */,
 				D439D6D50D0A0FDE0025574A /* sshfsConfiguration.xib */,
 				D4B14C0F0CE03F4C003195A3 /* sshfs-Info.plist */,
-				D4B14BAC0CE03C84003195A3 /* sshfs-static */,
 				D41316310D7F740400F55B9B /* sshfsAdvanced.xib */,
 			);
 			name = Resources;
@@ -1293,7 +1305,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B14BCB0CE03D25003195A3 /* sshfs-static in Resources */,
+				8D25FDFF1B3AEDFD002B7911 /* sshfs in Resources */,
+				8D25FDFD1B3AECAC002B7911 /* libosxfuse_i64.2.dylib in Resources */,
+				8D25FDF71B3AEC8E002B7911 /* libglib-2.0.0.dylib in Resources */,
+				8D25FDF81B3AEC8E002B7911 /* libgthread-2.0.0.dylib in Resources */,
+				8D25FDF91B3AEC8E002B7911 /* libintl.8.dylib in Resources */,
 				D439D6D60D0A0FDE0025574A /* sshfsConfiguration.xib in Resources */,
 				D4656C8D0D6FD6DC00DE2208 /* sshfs_icon.icns in Resources */,
 				D4656C8E0D6FD6DC00DE2208 /* sshfs.png in Resources */,
