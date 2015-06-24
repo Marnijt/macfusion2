@@ -110,7 +110,6 @@ static NSString *advancedViewControllerKey = @"sshfsAdvancedView";
         [arguments addObject:@"-ologlevel=debug1"];
     }
 	if ([[parameters objectForKey:kSSHFSSudoParameter] boolValue] == YES) {
-		[arguments addObject:@"-ossh_command=ssh -tt"];
 		[arguments addObject:@"-osftp_server=/usr/local/bin/sudo /usr/libexec/sftp-server"];
 	}
 	if ([[parameters objectForKey:kSSHFSForwardAgent] boolValue] == YES) {
